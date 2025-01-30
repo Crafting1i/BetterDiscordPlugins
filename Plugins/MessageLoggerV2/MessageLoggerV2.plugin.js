@@ -3399,7 +3399,7 @@ module.exports = class MessageLoggerV2 {
   }
   buildMenu(setup) {
     const ret = ZeresPluginLibrary.DCM.buildMenu(setup);
-    return props => ret({ ...props, onClose: _ => { } });
+    return props => ret({ ...props, onClose: _ => { }, id: 123 });
   }
   // >>-|| POPULATION ||-<<
   createMessageGroup(message, isStart) {
@@ -3776,10 +3776,11 @@ module.exports = class MessageLoggerV2 {
               }
             }
           );
-          ZeresPluginLibrary.DCM.openContextMenu(
+          BdApi.ContextMenu.open(
             e,
-            this.buildMenu([
+            BdApi.ContextMenu.buildMenu([
               {
+                key: "mykey?",
                 type: 'group',
                 items: menuItems
               }
@@ -4561,9 +4562,11 @@ module.exports = class MessageLoggerV2 {
       }
 
       menu.push(BdApi.ContextMenu.buildMenuChildren([{
+        label: 'hello',
         type: 'group',
         items: [{
           type: 'submenu',
+          id: "someIdLol",
           label: this.settings.contextmenuSubmenuName,
           items: newItems
         }]
@@ -4665,6 +4668,7 @@ module.exports = class MessageLoggerV2 {
         type: 'group',
         items: [{
           type: 'submenu',
+          id: "someIdLol",
           label: this.settings.contextmenuSubmenuName,
           items: newItems
         }]
@@ -4696,6 +4700,7 @@ module.exports = class MessageLoggerV2 {
         type: 'group',
         items: [{
           type: 'submenu',
+          id: "someIdLol",
           label: this.settings.contextmenuSubmenuName,
           items: newItems
         }]
@@ -4737,6 +4742,7 @@ module.exports = class MessageLoggerV2 {
         type: 'group',
         items: [{
           type: 'submenu',
+          id: "someIdLol",
           label: this.settings.contextmenuSubmenuName,
           items: newItems
         }]
@@ -4767,6 +4773,7 @@ module.exports = class MessageLoggerV2 {
         type: 'group',
         items: [{
           type: 'submenu',
+          id: "someIdLol",
           label: this.settings.contextmenuSubmenuName,
           items: newItems
         }]
@@ -4956,6 +4963,7 @@ module.exports = class MessageLoggerV2 {
         type: 'group',
         items: [{
           type: 'submenu',
+          id: "someIdLol",
           label: this.settings.contextmenuSubmenuName,
           items: newItems
         }]
